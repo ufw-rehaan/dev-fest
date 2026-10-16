@@ -147,7 +147,7 @@ export const SEED_MESSAGES: ChatMessage[] = [
     id: "msg-1",
     role: "assistant",
     content:
-      "👋 Welcome to **CommitDesk**. Paste meeting notes, action items, or any text into this chat and I'll extract structured tasks automatically.\n\nYour tasks appear on the board on the right and persist in your browser.",
+      "👋 Welcome to **CommitDesk**. Paste meeting notes, action items, or any text into this chat and I'll extract structured tasks automatically.\n\nYou can also ask me questions about your tasks:\n• \"What do I need to deliver today?\"\n• \"Give me the low-hanging fruit\"\n• \"I finished the security audit\"\n\nYour tasks appear on the board on the right and persist in your browser.",
     timestamp: new Date(Date.now() - 30 * 60000).toISOString(),
   },
   {
@@ -165,7 +165,34 @@ export const SEED_MESSAGES: ChatMessage[] = [
     timestamp: new Date(Date.now() - 27 * 60000).toISOString(),
     extractedTaskIds: ["task-1", "task-2", "task-3", "task-4"],
   },
+  {
+    id: "msg-4",
+    role: "user",
+    content: "What do I need to deliver today?",
+    timestamp: new Date(Date.now() - 10 * 60000).toISOString(),
+  },
+  {
+    id: "msg-5",
+    role: "assistant",
+    content:
+      "Here's what needs your attention right now (5 tasks, sorted by priority):\n\n• **Run security audit on API endpoints** ⚠️ **OVERDUE**\n  → David Osei · Large priority\n• **Update privacy policy for GDPR v2** ⚠️ **OVERDUE**\n  → Sofia Almonte · Large priority\n• **Finalise Q4 roadmap document** ⚠️ **OVERDUE**\n  → Priya Nair · Large priority\n• **Fix login timeout regression on iOS** 📅 due today\n  → Marcus Webb · Large priority\n• **Set up Playwright E2E test suite** 📅 due today\n  → Lena Hartmann · Medium priority",
+    timestamp: new Date(Date.now() - 9 * 60000).toISOString(),
+  },
+  {
+    id: "msg-6",
+    role: "user",
+    content: "I have one hour, give me the low-hanging fruit",
+    timestamp: new Date(Date.now() - 5 * 60000).toISOString(),
+  },
+  {
+    id: "msg-7",
+    role: "assistant",
+    content:
+      "Here are your **2 Small-effort tasks** — great for a focused hour:\n\n• **Refactor notification service** — David Osei · due Oct 30\n• **Conduct user interviews for search feature** — Aisha Mensah · due Oct 19",
+    timestamp: new Date(Date.now() - 4 * 60000).toISOString(),
+  },
 ];
+
 
 // Generates a stable UUID-like id for browser environments
 export function generateId(): string {
